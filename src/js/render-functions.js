@@ -1,16 +1,32 @@
-export default createMurkup; 
-function createMurkup(arr) {
-    return arr.map((image) =>
-     `<li class="gallery">
-            <a class="gallery-link" href="${image.largeImageURL}" target="_blank">
-                <img class="gallery-image" src="${image.webformatURL}" alt="${image.tags}" />
-                <div class="image-info">
-                    <p class="item"><span class="item-text">Likes:</span class="item-text"> ${image.likes}</p>
-                    <p class="item"><span class="item-text">Views:</span class="item-text"> ${image.views}</p>
-                    <p class="item"><span class="item-text">Comments:</span class="item-text"> ${image.comments}</p>
-                    <p class="item"><span class="item-text">Downloads:</span class="item-text"> ${image.downloads}</p>
-                </div>
-            </a>
-        </li>
-    `).join('');
+export default createMurkup;
+    
+function createMurkup(hits) {
+    return hits.map(hit => {
+        const {
+            largeImageURL,
+            webformatURL,
+            tags,
+            likes,
+            views,
+            comments,
+            downloads,
+        } = hit;
+
+        return `<li class="gallery-item" >
+    <a class="gallery-link" href="${largeImageURL}">
+      <img
+        class="gallery-image"
+        src="${webformatURL}"
+        alt="${tags}"
+      />
+    </a>
+    <div class="item-text">
+    <p class="numbers"><span class="top-item-text">Likes:</span> ${likes}</p>
+    <p class="numbers"><span class="top-item-text">Views:</span> ${views}</p>
+    <p class="numbers"><span class="top-item-text">Comments:</span> ${comments}</p>
+    <p class="numbers"><span class="top-item-text">Downloads:</span> ${downloads}</p>
+    </div>
+  </li>`;
+    }).join('');
+
 }

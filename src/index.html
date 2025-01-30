@@ -10,12 +10,18 @@
 </head>
 
 <body>
-  <form class="form search-form">
-    <input class="search-input" type="text" placeholder="Search for images..." required />
-    <button class="search-btn" type="submit">Search</button>
-  </form>
-  <span class="loader hidden"></span>
-  <ul class="gallery"></ul>
+  <div class="container">
+    <form class="form">
+      <input class="search-input" type="text" name="query" placeholder="Search for images..." />
+      <button class="search-btn" type="submit">Search
+
+      </button>
+    </form>
+    <span class="loader hidden"></span>
+    <ul class="gallery">
+    </ul>
+
+  </div>
 
   <script type="module" src="./main.js"></script>
 </body>
